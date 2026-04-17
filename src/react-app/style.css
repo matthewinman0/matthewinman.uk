@@ -311,6 +311,13 @@ footer {
   color: var(--accent-dim);
   background-color: var(--bg);
   user-select: none;
+  
+}
+
+#Search:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-dim);
+  border-radius: 6px;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
