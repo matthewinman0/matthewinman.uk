@@ -303,6 +303,14 @@ footer {
   letter-spacing: 0.04em;
 }
 
+.Search {
+  border: none;
+  font-family: var(--moono);
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--accent-dim);
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 600px) {
   #projects-grid { columns: 1; }
