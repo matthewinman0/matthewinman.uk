@@ -7,10 +7,10 @@
   --surface-2:   #1c1c18;
   --border:      #252420;
   --text:        #e4dfd5;
-  --text-muted:  #6b6760;
-  --text-dim:    #3d3c38;
-  --accent:      #c8b08a;
-  --accent-dim:  #5a4f3c;
+  --text-muted:  #999080;
+  --text-dim:    #6e6b60;
+  --accent:      #a3c88a;
+  --accent-dim:  #4b5a3c;
 
   --serif: 'Cormorant Garamond', Georgia, serif;
   --mono:  'JetBrains Mono', 'Courier New', monospace;
