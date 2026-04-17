@@ -69,36 +69,71 @@ function buildCard(repo: GitHubRepo): HTMLElement {
   return card
 }
 
-function buildAppCard(app: WebApp): HTMLElement {
-  const name = document.createElement('a')
-  name.className = 'card-name'
-  name.textContent = app.name
-  name.href = app.url
+function buildCard(repo: GitHubRepo): HTMLElement {
+  const link = document.createElement('a')
+  link.className = 'card card-link'
+  link.href = repo.html_url
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  link.style.textDecoration = 'none'
+  link.style.color = 'inherit'
 
-  const card = document.createElement('article')
-  card.className = 'card'
+  const nameRow = document.createElement('div')
+  nameRow.className = 'card-name-row'
+
+  const name = document.createElement('div')
+  name.className = 'card-name'
+  name.textContent = repo.name.replace(/-/g, '-\u200B')
+
+  const arrow = document.createElement('span')
+  arrow.className = 'card-arrow'
+  arrow.textContent = '↗'
+
+  nameRow.append(name, arrow)
 
   const desc = document.createElement('p')
   desc.className = 'card-desc'
-  desc.textContent = app.description
+  desc.textContent = repo.description ?? 'No description.'
 
-  card.append(name, desc)
+  const meta = document.createElement('div')
+  meta.className = 'card-meta'
 
-  if (app.tags?.length) {
+  if (repo.language) {
+    const lang = document.createElement('span')
+    lang.className = 'card-lang'
+    lang.innerHTML = `<span class="lang-dot" style="background:${languageColor(repo.language)}"></span>${repo.language}`
+    meta.appendChild(lang)
+  }
+
+  if (repo.stargazers_count > 0) {
+    const stars = document.createElement('span')
+    stars.className = 'card-stars'
+    stars.textContent = `★ ${repo.stargazers_count}`
+    meta.appendChild(stars)
+  }
+
+  const updated = document.createElement('span')
+  updated.className = 'card-updated'
+  updated.textContent = formatDate(repo.pushed_at)
+  meta.appendChild(updated)
+
+  link.append(nameRow, desc, meta)
+
+  if (repo.topics.length > 0) {
     const tags = document.createElement('div')
     tags.className = 'card-tags'
 
-    app.tags.forEach(t => {
+    repo.topics.slice(0, 5).forEach(t => {
       const tag = document.createElement('span')
       tag.className = 'card-tag'
       tag.textContent = t
       tags.appendChild(tag)
     })
 
-    card.appendChild(tags)
+    link.appendChild(tags)
   }
 
-  return card
+  return link
 }
 
 function renderError(msg: string): void {
