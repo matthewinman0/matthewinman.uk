@@ -73,10 +73,10 @@ function buildAppCard(app: WebApp): HTMLElement {
   const name = document.createElement('a')
   name.className = 'card-name'
   name.textContent = app.name
+  name.href = app.url
 
   const card = document.createElement('article')
   card.className = 'card'
-  card.href = app.url
 
   const desc = document.createElement('p')
   desc.className = 'card-desc'
