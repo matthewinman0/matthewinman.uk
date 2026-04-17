@@ -1,4 +1,5 @@
 import './style.css'
+import { apps, type WebApp } from './apps'
 import { fetchRepos, languageColor, formatDate, type GitHubRepo } from './github'
 
 const USERNAME = 'matthewinman0'
@@ -60,6 +61,38 @@ function buildCard(repo: GitHubRepo): HTMLElement {
       tag.textContent = t
       tags.appendChild(tag)
     })
+    card.appendChild(tags)
+  }
+
+  return card
+}
+
+function buildAppCard(app: WebApp): HTMLElement {
+  const card = document.createElement('article')
+  card.className = 'card'
+
+  const name = document.createElement('a')
+  name.className = 'card-name'
+  name.href = app.url
+  name.textContent = app.name
+
+  const desc = document.createElement('p')
+  desc.className = 'card-desc'
+  desc.textContent = app.description
+
+  card.append(name, desc)
+
+  if (app.tags?.length) {
+    const tags = document.createElement('div')
+    tags.className = 'card-tags'
+
+    app.tags.forEach(t => {
+      const tag = document.createElement('span')
+      tag.className = 'card-tag'
+      tag.textContent = t
+      tags.appendChild(tag)
+    })
+
     card.appendChild(tags)
   }
 
