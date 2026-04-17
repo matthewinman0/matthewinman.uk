@@ -306,9 +306,10 @@ footer {
 .Search input[type=text] {
   border: none;
   font-family: var(--moono);
-  font-size: 0.68rem;
+  font-size: 10px;
   font-weight: 300;
   color: var(--accent-dim);
+  background-color: var(--bg);
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
