@@ -4,4 +4,13 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig({
 	plugins: [react(), cloudflare()],
+	  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        si: 'apps/si-downloader/index.html'
+      }
+    }
+  }
+})
 });
