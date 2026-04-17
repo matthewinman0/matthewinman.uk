@@ -310,7 +310,7 @@ footer {
   font-weight: 300;
   color: var(--accent-dim);
   background-color: var(--bg);
-  pointer-events: none;
+  user-select: none;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
