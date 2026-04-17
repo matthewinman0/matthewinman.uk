@@ -2,6 +2,8 @@ import './style.css'
 import { apps, type WebApp } from './apps'
 import { fetchRepos, languageColor, formatDate, type GitHubRepo } from './github'
 
+const searchInput = document.getElementById('Search') as HTMLInputElement
+
 const USERNAME = 'matthewinman0'
 
 function buildCard(repo: GitHubRepo): HTMLElement {
@@ -144,6 +146,41 @@ async function init(): Promise<void> {
   })
 
   appCount.textContent = `${apps.length} apps`
+
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase()
+
+    // filter repos
+    const filteredRepos = repos.filter(r =>
+      r.name.toLowerCase().includes(query) ||
+      (r.description ?? '').toLowerCase().includes(query)
+    )
+
+    // filter apps
+    const filteredApps = apps.filter(a =>
+      a.name.toLowerCase().includes(query) ||
+      a.description.toLowerCase().includes(query) ||
+      a.tags?.some(t => t.toLowerCase().includes(query))
+    )
+
+    // render repos
+    grid.innerHTML = ''
+    filteredRepos.forEach(repo => {
+      grid.appendChild(buildCard(repo))
+    })
+
+    countEl.textContent = `${filteredRepos.length} repos`
+
+    // render apps
+    appGrid.innerHTML = ''
+    filteredApps.forEach(app => {
+      appGrid.appendChild(buildAppCard(app))
+    })
+
+    appCount.textContent = `${filteredApps.length} apps`
+  })
+
 }
 
 init()
