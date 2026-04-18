@@ -2,9 +2,15 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: '/', // ← make sure this exist
+  base: '/',
   plugins: [react()],
   build: {
-    outDir: "dist"
+    outDir: "dist",
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        mapgen: "apps/mapgen/index.html"
+      }
+    }
   }
 });
