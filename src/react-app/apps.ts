@@ -8,7 +8,7 @@ export type WebApp = {
 export const apps: WebApp[] = [
   {
     name: "Map Generator",
-    description: "Generate orienteering maps in browser",
+    description: "Placeholder",
     url: "/apps/mapgen",
     tags: ["maps", "web"]
   }
