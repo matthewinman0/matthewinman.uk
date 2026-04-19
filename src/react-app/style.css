@@ -304,6 +304,24 @@ footer {
   letter-spacing: 0.04em;
 }
 
+.settings-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.settings-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 0.8;
+  transition: 0.15s ease;
+}
+
+.settings-btn:hover .settings-icon {
+  opacity: 1;
+}
+
 .Search input[type=text] {
   border: none;
   font-family: var(--moono);
