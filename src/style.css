@@ -1,0 +1,110 @@
+:root {
+  --text: #D9F0FF;
+  --accent1: #A3D5FF;
+  --accent2: #888098;
+  --bg: #0E1C36;
+  --bg-accent: #313B72;
+
+  --shadow:rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1{
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent1);
+  line-height: 1;
+  text-shadow: var(--shadow);
+}
+
+p{
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+a{
+  display: block; /* Makes the entire boundary of the card clickable */
+  text-decoration: none; /* Strips the default underline from the titles and paragraphs */
+  color: inherit; /* Prevents your text from turning bright blue */
+}
+
+#heading {
+  padding: 16%;
+  text-align: left;
+  background-size: cover;
+}
+#heading::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  z-index: -1;
+
+  background-image: url(/map.png);
+  background-size: cover;
+  background-position: center;
+  
+  filter: blur(5px) brightness(0.5); 
+  scale: 1.1;
+}
+
+#colums{
+  background-color: var(--bg);
+  border-color: var(--accent1);
+  display: flex;
+}
+
+#column1, #column2{
+  flex: 1;
+  padding: 2%;
+  border-top: 2px solid var(--accent1);
+}
+
+#column1:hover, #column2:hover{
+  background-color: var(--bg-accent);
+  transition: 0.2s;
+}
+
+#column1{
+  width: 50%;
+  max-width: 30%;
+  border-right: 2px solid var(--accent1);
+}
+
+.break {
+  height: 2px;
+  background-color: var(--accent1);
+}
+
+
+footer{
+  text-align: center;
+  padding: 2%;
+  background-color: var(--bg-accent);
+  color: var(--accent2);
+}

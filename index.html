@@ -1,51 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Matthew Inman — developer. Projects and open source work." />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>" />
-    <title>Matthew Inman</title>
-  </head>
-  <body>
-    <div class="wrapper">
-
-      <header>
-        <div class="header-inner">
-          <h1 class="site-name">Matthew <em>Inman</em></h1>
-          <div class="Search">
-            <input type="text" placeholder="Search.." id="Search">
-          </div>
-          <span class="header-meta">Orienteering student coder</span>
-        </div>
-      </header>
-
-      <main>
-        <section aria-label="WebApps">
-          <div class="section-header">
-            <h2 class="section-title">Web Apps</h2>
-            <span id="app-count"></span>
-          </div>
-          <div id="app-grid" role="list" aria-live="polite"></div>
-        </section>
-
-        <section aria-label="Projects">
-          <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <span id="project-count"></span>
-          </div>
-          <div id="projects-grid" role="list" aria-live="polite"></div>
-        </section>
-      </main>
-
-      <footer>
-        <div class="footer-inner">
-          <a href="https://github.com/matthewinman0" target="_blank" rel="noopener">GitHub ↗</a>
-          <span class="footer-copy">© 2025 Matthew Inman</span>
-        </div>
-      </footer>
-
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>matthewinman.uk</title>
+</head>
+<body>
+  <div id="heading">
+    <div id="heading-text" >
+      <h1>Hi, it's Matthew</h1>
+      <hr>
+      <p>I'm a software engineer and web developer based in the UK. I love building things that make people's lives easier and more enjoyable.</p>
     </div>
-    <script type="module" src="/src/react-app/main.ts"></script>
-  </body>
+  </div>
+
+  <div id="colums">
+    <a href="https://github.com/matthewinman0" id="column1">
+      <h2>Projects</h2>
+      <p>I've worked on a variety of projects, ranging from web applications and robots, to mobile apps and games</p>
+    </a>
+    <a href="https://osom.matthewinman.uk" id="column2">
+      <h2>OSOM</h2>
+      <p>OSOM, or Open Street Orienteering Map, is a worldwide orienteering map and aims to be an alternative to LIDAR generated maps to create a better basemap for areas without it.</p>
+    </a>
+  </div>
+
+  <div class="break"></div>
+
+  <footer>
+    <p>&copy; 2023 Matthew Inman. All rights reserved.</p>
+  </footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
 </html>
